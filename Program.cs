@@ -1,4 +1,4 @@
-﻿//Alunos: Alison Civiero - 451219 e Jhonatan da Silva e Witor daniel martins - 434294
+//Alunos: Alison Civiero, Jhonatan da Silva e Witor Daniel
 using System;
 using System.Linq;
 
@@ -52,17 +52,17 @@ class ExplosiveTicTacToe
             }
 
             // input
-            Console.Write($"\nPlayer {current}, choose a position (1-9): ");
+            Console.Write($"\nPlayer {current}, escolha uma posição (1-9): ");
             var input = Console.ReadLine();
 
             if (!int.TryParse(input, out int pos) || pos < 1 || pos > 9)
             {
-                Warn("Invalid input. Use a number from 1 to 9.");
+                Warn("Invalid. Use um número de 1 a 9.");
                 continue;
             }
             if (board[pos - 1] != ' ')
             {
-                Warn("That cell is already taken.");
+                Warn("Essa local já está ocupada.");
                 continue;
             }
 
@@ -99,10 +99,10 @@ class ExplosiveTicTacToe
         board[idx] = ' ';
 
         Console.ForegroundColor = ConsoleColor.Magenta;
-        Console.WriteLine($"\n💥 Explosion! Cell {idx + 1} lost a '{removed}'.");
+        Console.WriteLine($"\n💥 Explodindo! Célula {idx + 1} perdeu um '{removed}'.");
         Console.ResetColor();
 
-        Console.WriteLine("Press any key to continue...");
+        Console.WriteLine("Pressione qualquer tecla para continuar...");
         Console.ReadKey();
     }
 
@@ -113,7 +113,7 @@ class ExplosiveTicTacToe
         Console.ForegroundColor = ConsoleColor.Red;  Console.Write("Player X: "); Console.ResetColor(); Console.WriteLine(scoreX);
         Console.ForegroundColor = ConsoleColor.Blue; Console.Write("Player O: "); Console.ResetColor(); Console.WriteLine(scoreO);
         Console.WriteLine("======================");
-        Console.Write("Current: ");
+        Console.Write("Jogador: ");
         if (current == 'X') { Console.ForegroundColor = ConsoleColor.Red;  Console.WriteLine("X"); }
         else                { Console.ForegroundColor = ConsoleColor.Blue; Console.WriteLine("O"); }
         Console.ResetColor();
@@ -121,7 +121,7 @@ class ExplosiveTicTacToe
 
     static void PrintBoard()
     {
-        Console.WriteLine("\nUse 1-9 to place:\n");
+        Console.WriteLine("\nUse 1-9:\n");
         for (int r = 0; r < 3; r++)
         {
             int i = r * 3;
@@ -160,7 +160,7 @@ class ExplosiveTicTacToe
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(msg);
         Console.ResetColor();
-        Console.WriteLine("Press any key...");
+        Console.WriteLine("Pressione qualquer tecla...");
         Console.ReadKey();
     }
 
@@ -208,4 +208,3 @@ class ExplosiveTicTacToe
         return char.ToLowerInvariant(key) == 'y';
     }
 }
-
